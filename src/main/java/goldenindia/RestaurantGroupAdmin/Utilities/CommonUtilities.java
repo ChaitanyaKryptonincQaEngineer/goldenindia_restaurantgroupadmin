@@ -97,5 +97,5 @@ public class CommonUtilities {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 		wait.until(ExpectedConditions.visibilityOfAllElements(ele));
 	}
-
+	
 }

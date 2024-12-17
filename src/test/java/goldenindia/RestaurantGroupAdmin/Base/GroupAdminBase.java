@@ -18,100 +18,100 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class GroupAdminBase {
 
-    public WebDriver driver;
+	public WebDriver driver;
 
-    public GroupAdminBase() {
-        
-        if (CommonUtilities.driver == null) {
-            driverIntialization();
-        }
-        this.driver = CommonUtilities.driver; // Use the initialized driver
-    }
+	public GroupAdminBase() {
 
-    public WebDriver driverIntialization() {
-        String browserValue = CommonUtilities.gettingValueFromPropertyFile("browserName");
+		if (CommonUtilities.driver == null) {
+			driverIntialization();
+		}
+		this.driver = CommonUtilities.driver; // Use the initialized driver
+	}
 
-        switch (browserValue.toLowerCase()) {
-            case "chrome":
-                WebDriverManager.chromedriver().setup();
-                CommonUtilities.driver = new ChromeDriver();
-                break;
-            case "edge":
-                WebDriverManager.edgedriver().setup();
-                CommonUtilities.driver = new EdgeDriver();
-                break;
-            case "firefox":
-                WebDriverManager.firefoxdriver().setup();
-                CommonUtilities.driver = new FirefoxDriver();
-                break;
-            default:
-                System.out.println("Invalid browser value: " + browserValue);
-                break;
-        }
+	public WebDriver driverIntialization() {
+		String browserValue = CommonUtilities.gettingValueFromPropertyFile("browserName");
 
-        if (CommonUtilities.driver != null) {
-            CommonUtilities.driver.manage().window().maximize();
-            CommonUtilities.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-            CommonUtilities.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
-        }
-        return CommonUtilities.driver;
-    }
+		switch (browserValue.toLowerCase()) {
+		case "chrome":
+			WebDriverManager.chromedriver().setup();
+			CommonUtilities.driver = new ChromeDriver();
+			break;
+		case "edge":
+			WebDriverManager.edgedriver().setup();
+			CommonUtilities.driver = new EdgeDriver();
+			break;
+		case "firefox":
+			WebDriverManager.firefoxdriver().setup();
+			CommonUtilities.driver = new FirefoxDriver();
+			break;
+		default:
+			System.out.println("Invalid browser value: " + browserValue);
+			break;
+		}
 
-    public void deletePreviousFailureScreenshots(String currentTestName) {
-        String reportsFolderPath = System.getProperty("user.dir") + "//screenshots//";
-        File reportsFolder = new File(reportsFolderPath);
+		if (CommonUtilities.driver != null) {
+			CommonUtilities.driver.manage().window().maximize();
+			CommonUtilities.driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+			CommonUtilities.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+		}
+		return CommonUtilities.driver;
+	}
 
-        if (reportsFolder.exists() && reportsFolder.isDirectory()) {
-            File[] files = reportsFolder.listFiles();
+	public void deletePreviousFailureScreenshots(String currentTestName) {
+		String reportsFolderPath = System.getProperty("user.dir") + "//screenshots//";
+		File reportsFolder = new File(reportsFolderPath);
 
-            // Delete previous failure screenshots for the current test
-            for (File file : files) {
-                if (file.getName().startsWith(currentTestName) && file.getName().endsWith(".png")) {
-                    if (!file.delete()) {
-                        System.out.println("Failed to delete file: " + file.getName());
-                    }
-                }
-            }
-        } else {
-            System.out.println("Reports folder not found: " + reportsFolderPath);
-        }
-    }
+		if (reportsFolder.exists() && reportsFolder.isDirectory()) {
+			File[] files = reportsFolder.listFiles();
 
-    @AfterSuite(enabled = true, alwaysRun = true)
-    public void tearDown() {
-        if (CommonUtilities.driver != null) {
-            CommonUtilities.driver.quit();
-        }
-    }
+			// Delete previous failure screenshots for the current test
+			for (File file : files) {
+				if (file.getName().startsWith(currentTestName) && file.getName().endsWith(".png")) {
+					if (!file.delete()) {
+						System.out.println("Failed to delete file: " + file.getName());
+					}
+				}
+			}
+		} else {
+			System.out.println("Reports folder not found: " + reportsFolderPath);
+		}
+	}
 
-    // Screenshot Capture Logic with a null check for driver
-    public String takingPageScreenShot(String methodName, WebDriver driver) {
-        // Null check for driver
-        if (driver == null) {
-            System.err.println("Error: WebDriver is null. Screenshot cannot be captured.");
-            return null;
-        }
+	@AfterSuite(enabled = false, alwaysRun = true)
+	public void tearDown() {
+		if (CommonUtilities.driver != null) {
+			CommonUtilities.driver.quit();
+		}
+	}
 
-        String fileName = methodName  + ".png";
-        String screenshotDir = System.getProperty("user.dir") + "/screenshots/";
+	// Screenshot Capture Logic with a null check for driver
+	public String takingPageScreenShot(String methodName, WebDriver driver) {
+		// Null check for driver
+		if (driver == null) {
+			System.err.println("Error: WebDriver is null. Screenshot cannot be captured.");
+			return null;
+		}
 
-        // Create the directory if it doesn't exist
-        File dir = new File(screenshotDir);
-        if (!dir.exists()) {
-            dir.mkdir(); // Create directory if it doesn't exist
-        }
+		String fileName = methodName + ".png";
+		String screenshotDir = System.getProperty("user.dir") + "/screenshots/";
 
-        String filePath = screenshotDir + fileName;
-        try {
-            // Take screenshot and store it in the specified file
-            File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            FileUtils.copyFile(screenshot, new File(filePath));
-            System.out.println("Screenshot saved to: " + filePath);
-            return filePath; // Return the path to the screenshot
-        } catch (IOException e) {
-            System.err.println("Failed to capture screenshot: " + e.getMessage());
-            e.printStackTrace();
-            return null;
-        }
-    }
+		// Create the directory if it doesn't exist
+		File dir = new File(screenshotDir);
+		if (!dir.exists()) {
+			dir.mkdir(); // Create directory if it doesn't exist
+		}
+
+		String filePath = screenshotDir + fileName;
+		try {
+			// Take screenshot and store it in the specified file
+			File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+			FileUtils.copyFile(screenshot, new File(filePath));
+			System.out.println("Screenshot saved to: " + filePath);
+			return filePath; // Return the path to the screenshot
+		} catch (IOException e) {
+			System.err.println("Failed to capture screenshot: " + e.getMessage());
+			e.printStackTrace();
+			return null;
+		}
+	}
 }

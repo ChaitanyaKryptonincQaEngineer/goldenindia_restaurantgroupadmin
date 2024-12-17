@@ -38,7 +38,7 @@ public class CouponAndVouchersPage{
 	WebElement addCouponBtn;
 
 	@FindBy(xpath = "//div[contains(@class, 'css-b62m3t-container')]")
-	List<WebElement> dropDowns;
+	public static List<WebElement> dropDowns;
 
 	@FindBy(xpath = "(//input[@type=\"date\"])[1]")
 	WebElement startDateSelection;
@@ -78,7 +78,7 @@ public class CouponAndVouchersPage{
 
 	WebDriverWait wait = new WebDriverWait(CommonUtilities.driver, Duration.ofSeconds(10));
 	JavascriptExecutor js = (JavascriptExecutor) CommonUtilities.driver;
-	Actions action = new Actions(CommonUtilities.driver);
+	static Actions action = new Actions(CommonUtilities.driver);
 	restaurantTestData testData = new restaurantTestData();
 
 	public CouponAndVouchersPage(WebDriver driver) {
@@ -144,7 +144,7 @@ public class CouponAndVouchersPage{
 
 	}
 
-	public void selectingBranch() {
+	public static  void selectingBranch() {
 
 		for (WebElement dropdown : dropDowns) {
 			if (dropdown.getText().equals("Search...")) {

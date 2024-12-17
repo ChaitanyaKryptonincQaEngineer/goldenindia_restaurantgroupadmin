@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases">
+      <class name="goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases">
         <methods>
-          <include name="loginToThePanel"/>
           <include name="tearDown"/>
+          <include name="verifyUserCreatingMenu"/>
         </methods>
-      </class> <!-- goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases -->
+      </class> <!-- goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

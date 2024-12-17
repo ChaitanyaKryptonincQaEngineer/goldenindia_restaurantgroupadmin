@@ -14,14 +14,13 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelUtilities {
 
-
-	public String path;
-	public FileInputStream fis = null;
-	public FileOutputStream fileOut = null;
-	private XSSFWorkbook workbook = null;
-	private XSSFSheet sheet = null;
-	private XSSFRow row = null;
-	private XSSFCell cell = null;
+	public static String path;
+	public static FileInputStream fis = null;
+	public static FileOutputStream fileOut = null;
+	public static XSSFWorkbook workbook = null;
+	public static XSSFSheet sheet = null;
+	public static XSSFRow row = null;
+	public static XSSFCell cell = null;
 
 	public ExcelUtilities(String path) {
 
@@ -38,7 +37,7 @@ public class ExcelUtilities {
 	}
 	// returns the row count in a sheet
 
-	public int getRowCount(String sheetName) {
+	public static int getRowCount(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1)
 			return 0;
@@ -50,19 +49,8 @@ public class ExcelUtilities {
 
 	}
 
-	/**
-	 * Code has been updated as per new POI version - 4.x.x
-	 * 
-	 * @author NaveenKhunteta
-	 * @param sheetName
-	 * @param colNum
-	 * @param rowNum
-	 * @return
-	 */
-	
-	
 	// returns the data from a cell
-	public String getCellData(String sheetName, String colName, int rowNum) {
+	public static String getCellData(String sheetName, String colName, int rowNum) {
 		try {
 			if (rowNum <= 0)
 				return "";
@@ -91,7 +79,7 @@ public class ExcelUtilities {
 			if (cell == null)
 				return "";
 
-			//System.out.println(cell.getCellType().name());
+			// System.out.println(cell.getCellType().name());
 			//
 			if (cell.getCellType().name().equals("STRING"))
 				return cell.getStringCellValue();
@@ -129,17 +117,8 @@ public class ExcelUtilities {
 		}
 	}
 
-	/**
-	 * Code has been updated as per new POI version - 4.x.x
-	 * 
-	 * @author NaveenKhunteta
-	 * @param sheetName
-	 * @param colNum
-	 * @param rowNum
-	 * @return
-	 */
 	// returns the data from a cell
-	public String getCellData(String sheetName, int colNum, int rowNum) {
+	public static String getCellData(String sheetName, int colNum, int rowNum) {
 		try {
 			if (rowNum <= 0)
 				return "";
@@ -193,7 +172,7 @@ public class ExcelUtilities {
 	}
 
 	// returns true if data is set successfully else false
-	public boolean setCellData(String sheetName, String colName, int rowNum, String data) {
+	public static boolean setCellData(String sheetName, String colName, int rowNum, String data) {
 		try {
 			fis = new FileInputStream(path);
 			workbook = new XSSFWorkbook(fis);
@@ -244,75 +223,9 @@ public class ExcelUtilities {
 		}
 		return true;
 	}
-	// returns true if data is set successfully else false
-	// public boolean setCellData(String sheetName,String colName,int rowNum,
-	// String data,String url){
-	// //System.out.println("setCellData setCellData******************");
-	// try{
-	// fis = new FileInputStream(path);
-	// workbook = new XSSFWorkbook(fis);
-	//
-	// if(rowNum<=0)
-	// return false;
-	//
-	// int index = workbook.getSheetIndex(sheetName);
-	// int colNum=-1;
-	// if(index==-1)
-	// return false;
-	//
-	//
-	// sheet = workbook.getSheetAt(index);
-	// //System.out.println("A");
-	// row=sheet.getRow(0);
-	// for(int i=0;i<row.getLastCellNum();i++){
-	// //System.out.println(row.getCell(i).getStringCellValue().trim());
-	// if(row.getCell(i).getStringCellValue().trim().equalsIgnoreCase(colName))
-	// colNum=i;
-	// }
-	//
-	// if(colNum==-1)
-	// return false;
-	// sheet.autoSizeColumn(colNum);
-	// row = sheet.getRow(rowNum-1);
-	// if (row == null)
-	// row = sheet.createRow(rowNum-1);
-	//
-	// cell = row.getCell(colNum);
-	// if (cell == null)
-	// cell = row.createCell(colNum);
-	//
-	// cell.setCellValue(data);
-	// XSSFCreationHelper createHelper = workbook.getCreationHelper();
-	//
-	// //cell style for hyperlinks
-	// //by default hypelrinks are blue and underlined
-	// CellStyle hlink_style = workbook.createCellStyle();
-	// XSSFFont hlink_font = workbook.createFont();
-	// hlink_font.setUnderline(XSSFFont.U_SINGLE);
-	// hlink_font.setColor(IndexedColors.BLUE.getIndex());
-	// hlink_style.setFont(hlink_font);
-	// //hlink_style.setWrapText(true);
-	//
-	// XSSFHyperlink link = createHelper.createHyperlink(Xls_Reader.LINK_FILE);
-	// link.setAddress(url);
-	// cell.setHyperlink(link);
-	// cell.setCellStyle(hlink_style);
-	//
-	// fileOut = new FileOutputStream(path);
-	// workbook.write(fileOut);
-	//
-	// fileOut.close();
-	//
-	// }
-	// catch(Exception e){
-	// e.printStackTrace();
-	// return false;
-	// }
-	// return true;
-	// }
-
+	
 	// returns true if sheet is created successfully else false
-	public boolean addSheet(String sheetname) {
+	public static boolean addSheet(String sheetname) {
 
 		FileOutputStream fileOut;
 		try {
@@ -329,7 +242,7 @@ public class ExcelUtilities {
 
 	// returns true if sheet is removed successfully else false if sheet does
 	// not exist
-	public boolean removeSheet(String sheetName) {
+	public static boolean removeSheet(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1)
 			return false;
@@ -393,7 +306,7 @@ public class ExcelUtilities {
 	}
 
 	// removes a column and all the contents
-	public boolean removeColumn(String sheetName, int colNum) {
+	public static boolean removeColumn(String sheetName, int colNum) {
 		try {
 			if (!isSheetExist(sheetName))
 				return false;
@@ -426,7 +339,7 @@ public class ExcelUtilities {
 	}
 
 	// find whether sheets exists
-	public boolean isSheetExist(String sheetName) {
+	public static boolean isSheetExist(String sheetName) {
 		int index = workbook.getSheetIndex(sheetName);
 		if (index == -1) {
 			index = workbook.getSheetIndex(sheetName.toUpperCase());
@@ -439,7 +352,7 @@ public class ExcelUtilities {
 	}
 
 	// returns number of columns in a sheet
-	public int getColumnCount(String sheetName) {
+	public static int getColumnCount(String sheetName) {
 		// check if sheet exists
 		if (!isSheetExist(sheetName))
 			return -1;
@@ -454,31 +367,8 @@ public class ExcelUtilities {
 
 	}
 
-	// String sheetName, String testCaseName,String keyword ,String URL,String
-	// message
-	// public boolean addHyperLink(String sheetName,String
-	// screenShotColName,String testCaseName,int index,String url,String
-	// message){
-	// //System.out.println("ADDING addHyperLink******************");
-	//
-	// url=url.replace('\\', '/');
-	// if(!isSheetExist(sheetName))
-	// return false;
-	//
-	// sheet = workbook.getSheet(sheetName);
-	//
-	// for(int i=2;i<=getRowCount(sheetName);i++){
-	// if(getCellData(sheetName, 0, i).equalsIgnoreCase(testCaseName)){
-	// //System.out.println("**caught "+(i+index));
-	// setCellData(sheetName, screenShotColName, i+index, message,url);
-	// break;
-	// }
-	// }
-	//
-	//
-	// return true;
-	// }
-	public int getCellRowNum(String sheetName, String colName, String cellValue) {
+
+	public static int getCellRowNum(String sheetName, String colName, String cellValue) {
 
 		for (int i = 2; i <= getRowCount(sheetName); i++) {
 			if (getCellData(sheetName, colName, i).equalsIgnoreCase(cellValue)) {
@@ -489,6 +379,4 @@ public class ExcelUtilities {
 
 	}
 
-	
-	
 }
