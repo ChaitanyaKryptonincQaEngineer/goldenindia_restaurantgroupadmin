@@ -2,7 +2,9 @@ package goldenindia.RestaurantGroupAdmin.Utilities;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
@@ -31,7 +33,7 @@ public class ExcelUtilities {
 			sheet = workbook.getSheetAt(0);
 			fis.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}
@@ -378,5 +380,20 @@ public class ExcelUtilities {
 		return -1;
 
 	}
+	
+	public static List<String> getAllValues(String sheetName, String colName) {
+        List<String> productNames = new ArrayList<>();
+        
+        // Loop through all the rows
+        int rowCount = ExcelUtilities.getRowCount(sheetName);
+        for (int i = 1; i <= rowCount; i++) { // starting from 1 to skip header row
+            String productName = ExcelUtilities.getCellData(sheetName, colName, i);
+            if (!productName.isEmpty()) {
+                productNames.add(productName);
+            }
+        }
+        
+        return productNames;
+    }
 
 }

@@ -51,7 +51,6 @@ public class CommonUtilities {
 	}
 
 	public static String gettingValueFromFile() throws IOException {
-		// TODO Auto-generated method stub
 
 		String file = System.getProperty("user.dir")
 				+ "/src/test/java/goldenindia/RestaurantGroupAdmin/TestData/RestaurantGroupAdmin.txt";
@@ -80,7 +79,7 @@ public class CommonUtilities {
 			writer.close();
 			reader.close();
 
-			// TODO: Write the incremented value back to the file (not shown here)
+			
 		} else {
 			System.out.println("File is empty or does not contain a valid integer.");
 		}

@@ -1,22 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-16T19:13:15 IST" name="Menu Management" finished-at="2024-12-16T19:13:32 IST" duration-ms="16805">
+  <suite started-at="2024-12-20T18:23:47 IST" name="Menu Management" finished-at="2024-12-20T18:24:42 IST" duration-ms="54807">
     <groups>
       <group name="Regression">
-        <method signature="LoginPageTestCases.loginToThePanel()[pri:0, instance:goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases@64711bf2]" name="loginToThePanel" class="goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases"/>
+        <method signature="LoginPageTestCases.loginToThePanel()[pri:0, instance:goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases@398474a2]" name="loginToThePanel" class="goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases"/>
       </group> <!-- Regression -->
     </groups>
-    <test started-at="2024-12-16T19:13:15 IST" name="Regression test cases" finished-at="2024-12-16T19:13:32 IST" duration-ms="16805">
+    <test started-at="2024-12-20T18:23:47 IST" name="Regression test cases" finished-at="2024-12-20T18:24:42 IST" duration-ms="54807">
       <class name="goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases">
-        <test-method signature="verifyUserCreatingMenu()[pri:0, instance:goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases@76464795]" started-at="2024-12-16T19:13:20 IST" name="verifyUserCreatingMenu" finished-at="2024-12-16T19:13:32 IST" duration-ms="12137" status="PASS">
+        <test-method signature="verifyUserCreatingMenu()[pri:1, instance:goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases@58253c57]" started-at="2024-12-20T18:23:51 IST" name="verifyUserCreatingMenu" finished-at="2024-12-20T18:24:41 IST" duration-ms="49960" status="FAIL">
+          <exception class="java.lang.IndexOutOfBoundsException">
+            <message>
+              <![CDATA[Index 0 out of bounds for length 0]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+at java.base/java.util.Objects.checkIndex(Objects.java:385)
+at java.base/java.util.ArrayList.get(ArrayList.java:427)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+at jdk.proxy2/jdk.proxy2.$Proxy17.get(Unknown Source)
+at goldenindia.RestaurantGroupAdmin.PageObjects.MenusPage.creatingProduct(MenusPage.java:204)
+at goldenindia.RestaurantGroupAdmin.PageObjects.MenusPage.creatingCategory(MenusPage.java:171)
+at goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases.verifyUserCreatingMenu(MenuManagementTestCases.java:20)
+at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:227)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:957)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:200)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+at org.testng.TestRunner.privateRun(TestRunner.java:848)
+at org.testng.TestRunner.run(TestRunner.java:621)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
+at org.testng.SuiteRunner.run(SuiteRunner.java:336)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1280)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1200)
+at org.testng.TestNG.runSuites(TestNG.java:1114)
+at org.testng.TestNG.run(TestNG.java:1082)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:293)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:91)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.IndexOutOfBoundsException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUserCreatingMenu -->
       </class> <!-- goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases -->
       <class name="goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases">
-        <test-method signature="loginToThePanel()[pri:0, instance:goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases@64711bf2]" started-at="2024-12-16T19:13:15 IST" name="loginToThePanel" finished-at="2024-12-16T19:13:20 IST" duration-ms="4604" status="PASS">
+        <test-method signature="loginToThePanel()[pri:0, instance:goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases@398474a2]" started-at="2024-12-20T18:23:47 IST" name="loginToThePanel" finished-at="2024-12-20T18:23:51 IST" duration-ms="3909" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginToThePanel -->

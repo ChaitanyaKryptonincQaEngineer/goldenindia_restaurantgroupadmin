@@ -9,11 +9,23 @@
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
 <tr><th colspan="8">Menu Management</th></tr>
-<tr><td><a href="#t0">Regression test cases</a></td><td class="num">2</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">16,805</td><td></td><td></td></tr>
+<tr><td><a href="#t0">Regression test cases</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">54,807</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Menu Management</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Regression test cases &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases</td><td><a href="#m0">loginToThePanel</a></td><td rowspan="1">1734356595569</td><td rowspan="1">4604</td></tr><tr class="passedodd"><td rowspan="1">goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases</td><td><a href="#m1">verifyUserCreatingMenu</a></td><td rowspan="1">1734356600185</td><td rowspan="1">12137</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Menu Management</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Regression test cases &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases</td><td><a href="#m0">verifyUserCreatingMenu</a></td><td rowspan="1">1734699231994</td><td rowspan="1">49960</td></tr><tr><th colspan="4">Regression test cases &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases</td><td><a href="#m1">loginToThePanel</a></td><td rowspan="1">1734699227346</td><td rowspan="1">3909</td></tr></tbody>
 </table>
-<h2>Regression test cases</h2><h3 id="m0">goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases#loginToThePanel</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases#verifyUserCreatingMenu</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Regression test cases</h2><h3 id="m0">goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases#verifyUserCreatingMenu</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:385)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.get(Unknown Source)
+	at goldenindia.RestaurantGroupAdmin.PageObjects.MenusPage.creatingProduct(MenusPage.java:204)
+	at goldenindia.RestaurantGroupAdmin.PageObjects.MenusPage.creatingCategory(MenusPage.java:171)
+	at goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases.verifyUserCreatingMenu(MenuManagementTestCases.java:20)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases#loginToThePanel</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

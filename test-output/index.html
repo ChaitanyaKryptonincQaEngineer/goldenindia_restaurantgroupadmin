@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -39,7 +39,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Menu_Management" class="navigator-link">
-              <span class="suite-name border-passed">Menu Management</span>
+              <span class="suite-name border-failed">Menu Management</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Menu_Management" class="navigator-link ">
-                    <span>C:\Users\Admin\Downloads\GoldenIndia Automation Projects\GoldenIndia Automation Projects\RestaurantGroupAdmin\src\test\java\goldenindia\RestaurantGroupAdmin\TestSuite\couponAndvoucher2.xml</span>
+                    <span>C:\Users\Admin\Downloads\GoldenIndia Automation Projects\GoldenIndia Automation Projects\RestaurantGroupAdmin\src\test\java\goldenindia\RestaurantGroupAdmin\TestSuite\menumanagement.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -92,7 +92,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Menu_Management" class="hide-methods failed suite-Menu_Management"> (hide)</a> <!-- hide-methods failed suite-Menu_Management -->
+                      <a href="#" panel-name="suite-Menu_Management" class="show-methods failed suite-Menu_Management"> (show)</a> <!-- show-methods failed suite-Menu_Management -->
+                    </span>
+                    <div class="method-list-content failed suite-Menu_Management">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Menu_Management" title="goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases" class="method navigator-link" hash-for-method="verifyUserCreatingMenu">verifyUserCreatingMenu</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Menu_Management -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,11 +118,6 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Menu_Management" title="goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases" class="method navigator-link" hash-for-method="loginToThePanel">loginToThePanel</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Menu_Management" title="goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases" class="method navigator-link" hash-for-method="verifyUserCreatingMenu">verifyUserCreatingMenu</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Menu_Management -->
@@ -123,9 +132,9 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Menu_Management" class="panel Menu_Management">
-          <div class="suite-Menu_Management-class-passed">
+          <div class="suite-Menu_Management-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
+              <img src="failed.png"/>
               <span class="class-name">goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
@@ -134,10 +143,24 @@
                   <a name="verifyUserCreatingMenu">
                   </a> <!-- verifyUserCreatingMenu -->
                   <span class="method-name">verifyUserCreatingMenu</span>
+                  <div class="stack-trace">java.lang.IndexOutOfBoundsException: Index 0 out of bounds for length 0
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:385)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementListHandler.invoke(LocatingElementListHandler.java:39)
+	at jdk.proxy2/jdk.proxy2.$Proxy17.get(Unknown Source)
+	at goldenindia.RestaurantGroupAdmin.PageObjects.MenusPage.creatingProduct(MenusPage.java:204)
+	at goldenindia.RestaurantGroupAdmin.PageObjects.MenusPage.creatingCategory(MenusPage.java:171)
+	at goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases.verifyUserCreatingMenu(MenuManagementTestCases.java:20)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Menu_Management-class-passed -->
+          </div> <!-- suite-Menu_Management-class-failed -->
           <div class="suite-Menu_Management-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -156,13 +179,16 @@
         </div> <!-- panel Menu_Management -->
         <div panel-name="test-xml-Menu_Management" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\Admin\Downloads\GoldenIndia Automation Projects\GoldenIndia Automation Projects\RestaurantGroupAdmin\src\test\java\goldenindia\RestaurantGroupAdmin\TestSuite\couponAndvoucher2.xml</span>
+            <span class="header-content">C:\Users\Admin\Downloads\GoldenIndia Automation Projects\GoldenIndia Automation Projects\RestaurantGroupAdmin\src\test\java\goldenindia\RestaurantGroupAdmin\TestSuite\menumanagement.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite name=&quot;Menu Management&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;goldenindia.RestaurantGroupAdmin.Base.GroupAdminListeners&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Regression test cases&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases&quot;/&gt;
@@ -218,16 +244,16 @@ data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'verifyUserCreatingMenu')
 data.setCell(0, 2, 'goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases')
-data.setCell(0, 3, 12137);
+data.setCell(0, 3, 49960);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginToThePanel')
 data.setCell(1, 2, 'goldenindia.RestaurantGroupAdmin.TestCases.LoginPageTestCases')
-data.setCell(1, 3, 4604);
+data.setCell(1, 3, 3909);
 window.suiteTableData['Menu_Management']= { tableData: data, tableDiv: 'times-div-Menu_Management'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 16 seconds</span>
+              <span class="suite-total-time">Total running time: 53 seconds</span>
               <div id="times-div-Menu_Management">
               </div> <!-- times-div-Menu_Management -->
             </div> <!-- times-div -->
@@ -269,8 +295,10 @@ return data;
             <div class="chronological-class">
               <div class="chronological-class-name">goldenindia.RestaurantGroupAdmin.TestCases.MenuManagementTestCases</div> <!-- chronological-class-name -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">verifyUserCreatingMenu</span>
-                <span class="method-start">4616 ms</span>
+                <span class="method-start">4648 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

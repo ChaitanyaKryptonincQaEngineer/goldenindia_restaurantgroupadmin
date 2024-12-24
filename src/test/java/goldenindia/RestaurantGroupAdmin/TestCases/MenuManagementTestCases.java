@@ -1,5 +1,7 @@
 package goldenindia.RestaurantGroupAdmin.TestCases;
 
+import java.io.IOException;
+
 import org.testng.annotations.Test;
 
 import goldenindia.RestaurantGroupAdmin.Base.GroupAdminBase;
@@ -10,11 +12,19 @@ public class MenuManagementTestCases extends GroupAdminBase {
 
 	MenusPage menuPage = new MenusPage(CommonUtilities.driver);
 
-	@Test
+	@Test(priority = 1)
 	public void verifyUserCreatingMenu() throws InterruptedException {
 		menuPage.creatingMenu();
-		menuPage.creatingCategory();
+		
+		try {
+			menuPage.creatingCategory();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 	}
-	
-	
+
+
 }
